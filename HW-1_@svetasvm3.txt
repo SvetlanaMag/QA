@@ -1,0 +1,70 @@
+HW-1. Linux Terminal commands.
+
+1. Посмотреть где я --- pwd
+
+2. Создать папку --- mkdir qa_1
+
+3. Зайти в папку --- cd qa_1
+
+4. Создать 3 папки --- mkdir qa_1 qa_2 qa_3
+
+5. Зайти в любую папку --- cd /d/test/group/qa_1/
+
+6. Создать 5 файлов (3 txt, 2 json) --- touch 1.txt 2.txt 3.txt 1.json 2.json
+
+7. Создать 3 папки --- mkdir qa_2 qa_3 qa_4
+
+8. Вывести список содержимого папки --- ls -la
+
+9. + открыть любой txt файл --- vim 1.txt
+
+10. + написать туда что-нибудь --- нажать i, ввести текст
+
+11. + сохранить и выйти --- нажать Esc, затем :wq
+
+12. Выйти из папки на уровень выше --- cd ..
+
+13. переместить любые 2 файла в любую другую папку ---  mv qa_4/1.txt qa_4/2.txt qa_5/  или mv {1.txt,2.txt} qa_1/
+
+14. скопировать любые 2 файла в любую другую папку --- cp qa_5/1.txt qa_5/2.txt qa_1/ или cp {3.txt,4.txt} qa_1/
+
+15. найти файл по имени --- find -name aa1.txt
+
+16. просмотреть содержимое в реальном времени --- tail -f qa_1/aa1.txt | grep with
+
+17. вывести несколько первых (3) строк из текстового файла --- head -3 qa_1/aa1.txt
+
+18. вывести несколько последних (6) строк из текстового файла --- tail -6 qa_1/aa1.txt
+
+19. просмотреть содержимое длинного файла less qa_1/aa1.txt
+
+*
+1. Отправить запрос на сервер --- curl http://162.55.220.72:5005/terminal-hw-request
+
+$
+curl "http://162.55.220.72:5005/get_method?name=Lana&age=100"
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100    15  100    15    0     0    156      0 --:--:-- --:--:-- --:--:--   157["Lana","100"]
+
+[1]+  Done                    curl http://162.55.220.72:5005/get_method?name=Lana
+
+
+2. написать скрипт, который выполнит автоматически пункты 3,4,5,6,7,8,13
+
+написать скрипт vim script.sh  (предварительно создать файл с расширением .sh)
+
+#!/bin/bash
+
+cd qa_2
+mkdir a_1 a_2 a_3
+cd a_1
+touch aa1.txt aa2.txt aa3.txt bb1.json bb2.json
+mkdir b_1 b_2 b_3
+ls -la
+mv {aa1.txt,aa2.txt} b_1/
+
+запустить скрипт ./script.sh
+
+
+shift+insert
